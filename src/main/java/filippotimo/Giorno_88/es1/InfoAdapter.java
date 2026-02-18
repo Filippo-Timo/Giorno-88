@@ -14,6 +14,7 @@ public class InfoAdapter implements DataSource {
 
     @Override
     public String getNomeCompleto() {
+        // Qui semplicemente concateno le due stringhe nome e cognome per ottenerne una sola
         return info.getNome() + " " + info.getCognome();
     }
 
@@ -23,15 +24,16 @@ public class InfoAdapter implements DataSource {
         // 1) Recupero la data di nascita da info
         Date dataDiNascita = info.getDataDiNascita();
 
-        // 2) Creo un oggetto di tipo Calendar
+        // 2) Creo un oggetto di tipo Calendar inizializzandolo alla data di oggi che mi servirà per la data di nascita
         Calendar nascita = Calendar.getInstance();
 
-        // 3) Assegno a nascita la data di nacita
+        // 3) Assegno all'oggetto di tipo Calendar nascita il valore della data di nascita
         nascita.setTime(dataDiNascita);
 
-        // 4) Creo un calendar con valore oggi
+        // 4) Creo un oggetto di tipo Calendar con valore oggi al quale andrò a sottrarre il valore della data di nascita
         Calendar oggi = Calendar.getInstance();
 
+        // 5) Effettuo l'operazione di sottrazione che mi restituisce l'età
         int eta = oggi.get(Calendar.YEAR) - nascita.get(Calendar.YEAR);
         return eta;
 
