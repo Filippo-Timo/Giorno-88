@@ -3,10 +3,9 @@ package filippotimo.Giorno_88.es3;
 import lombok.Setter;
 
 @Setter
-public class Tenente {
+public class Tenente extends Ufficiale {
 
-    private Tenente next;
-
+    @Override
     public void verify(int importo) {
         if (importo >= 1000) {
             System.out.println("Potrei essere un Tenente");
@@ -14,11 +13,6 @@ public class Tenente {
         } else {
             System.out.println("Non potrei essere un Tenente");
         }
-    }
-
-    public void next(int importo) {
-        if (this.next != null) this.next.verify(importo);
-        else System.out.println("Verifica terminata");
     }
 
 }
